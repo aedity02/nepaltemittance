@@ -1,0 +1,242 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remittance Rate Nepal Today | USD QAR MYR AED SAR to NPR</title>
+    <meta name="description" content="Check today's remittance exchange rates in Nepal. Convert USD, QAR, MYR, AED, SAR to NPR instantly. Updated daily for Nepali families receiving money from abroad.">
+    <link rel="canonical" href="https://remittancenepal.vercel.app/">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Remittance Rate Nepal Today | Foreign Currency to NPR">
+    <meta property="og:description" content="Check today's remittance exchange rates in Nepal. Convert USD, QAR, MYR, AED, SAR to NPR instantly.">
+    <meta property="og:url" content="https://remittancenepal.vercel.app/">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_NP">
+    <meta property="og:site_name" content="Remittance Rate Nepal">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Remittance Rate Nepal Today | Foreign Currency to NPR">
+    <meta name="twitter:description" content="Check today's remittance exchange rates in Nepal. Convert USD, QAR, MYR, AED, SAR to NPR instantly.">
+    
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FinancialService",
+        "name": "Remittance Rate Converter Nepal",
+        "description": "Check today's remittance exchange rates in Nepal. Convert foreign currencies to NPR.",
+        "url": "https://remittancenepal.vercel.app/",
+        "areaServed": {
+            "@type": "Country",
+            "name": "Nepal"
+        },
+        "serviceType": "Currency Exchange Rate Information"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is today's dollar rate in Nepal?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The US dollar rate in Nepal changes daily. Check our converter for the latest indicative USD to NPR exchange rate updated regularly."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How do I convert Qatar Riyal to Nepali Rupees?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Enter the QAR amount in our converter to instantly see the equivalent in Nepali Rupees at today's indicative exchange rate."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Which currencies can I convert to NPR?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "You can convert USD (US Dollar), QAR (Qatar Riyal), MYR (Malaysian Ringgit), AED (UAE Dirham), and SAR (Saudi Riyal) to Nepali Rupees."
+                }
+            }
+        ]
+    }
+    </script>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1 class="logo">🇳🇵 Remittance Rate Nepal</h1>
+            <p class="tagline">Today's Exchange Rates for Nepali Families</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="converter-section" aria-labelledby="converter-heading">
+            <h2 id="converter-heading" class="section-title">Today's Remittance Rate in Nepal</h2>
+            <p class="last-updated" id="lastUpdated">Loading rates...</p>
+            
+            <div class="converter-card">
+                <div class="input-group">
+                    <label for="currency" class="label">Select Currency</label>
+                    <select id="currency" class="select-input" aria-label="Select foreign currency">
+                        <option value="USD">🇺🇸 USD - US Dollar</option>
+                        <option value="QAR">🇶🇦 QAR - Qatar Riyal</option>
+                        <option value="MYR">🇲🇾 MYR - Malaysian Ringgit</option>
+                        <option value="AED">🇦🇪 AED - UAE Dirham</option>
+                        <option value="SAR">🇸🇦 SAR - Saudi Riyal</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="amount" class="label">Amount You're Receiving</label>
+                    <input type="number" id="amount" class="text-input" placeholder="Enter amount" min="0" step="0.01" aria-label="Enter amount in foreign currency">
+                </div>
+
+                <button id="convertBtn" class="btn-primary" type="button">Convert to NPR</button>
+
+                <div class="result-box" id="resultBox" aria-live="polite">
+                    <p class="result-label">You will receive approximately:</p>
+                    <p class="result-amount" id="resultAmount">रू 0.00</p>
+                    <p class="result-rate" id="resultRate">Rate: --</p>
+                </div>
+            </div>
+
+            <p class="disclaimer">⚠️ Rates shown are indicative and may vary by provider. Always confirm with your remittance service before sending money.</p>
+        </section>
+
+        <!-- Ad Placeholder -->
+        <div class="ad-placeholder" aria-label="Advertisement">
+            <!-- Google AdSense Responsive Ad Unit -->
+            <!-- <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXX" data-ad-slot="XXXXXXXX" data-ad-format="auto" data-full-width-responsive="true"></ins> -->
+            <p class="ad-label">Advertisement</p>
+        </div>
+
+        <section class="rates-section" aria-labelledby="rates-heading">
+            <h2 id="rates-heading" class="section-title">Today's Exchange Rates in Nepal</h2>
+            
+            <div class="table-container">
+                <table class="rates-table" id="ratesTable">
+                    <thead>
+                        <tr>
+                            <th scope="col">Currency</th>
+                            <th scope="col">Buy (NPR)</th>
+                            <th scope="col">Sell (NPR)</th>
+                        </tr>
+                    </thead>
+                    <tbody id="ratesBody">
+                        <tr>
+                            <td colspan="3" class="loading-cell">Loading rates...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="currency-links" aria-labelledby="currency-pages-heading">
+            <h2 id="currency-pages-heading" class="section-title">Currency Conversion Pages</h2>
+            <nav class="currency-nav" aria-label="Currency pages">
+                <a href="/usd-to-npr.html" class="currency-link">
+                    <span class="flag">🇺🇸</span>
+                    <span>USD to NPR</span>
+                </a>
+                <a href="/qar-to-npr.html" class="currency-link">
+                    <span class="flag">🇶🇦</span>
+                    <span>QAR to NPR</span>
+                </a>
+                <a href="/myr-to-npr.html" class="currency-link">
+                    <span class="flag">🇲🇾</span>
+                    <span>MYR to NPR</span>
+                </a>
+                <a href="/aed-to-npr.html" class="currency-link">
+                    <span class="flag">🇦🇪</span>
+                    <span>AED to NPR</span>
+                </a>
+                <a href="/sar-to-npr.html" class="currency-link">
+                    <span class="flag">🇸🇦</span>
+                    <span>SAR to NPR</span>
+                </a>
+            </nav>
+        </section>
+
+        <section class="info-section" aria-labelledby="about-heading">
+            <h2 id="about-heading" class="section-title">About Remittance to Nepal</h2>
+            <p>Nepal receives billions of dollars in remittances every year from hardworking Nepalis abroad. Whether your family member works in Qatar, Malaysia, UAE, Saudi Arabia, or the United States, knowing the current exchange rate helps you plan your finances better.</p>
+            <p>Our free converter shows indicative rates for the most common remittance currencies. Over 4 million Nepalis work overseas, sending money home to support their families. We help you estimate how much Nepali Rupees you'll receive.</p>
+            
+            <h3>Popular Remittance Corridors to Nepal</h3>
+            <ul class="info-list">
+                <li><strong>Qatar to Nepal:</strong> Large Nepali workforce in construction and hospitality</li>
+                <li><strong>Malaysia to Nepal:</strong> Manufacturing and service sector workers</li>
+                <li><strong>UAE to Nepal:</strong> Dubai and Abu Dhabi have significant Nepali communities</li>
+                <li><strong>Saudi Arabia to Nepal:</strong> Domestic and construction workers</li>
+                <li><strong>USA to Nepal:</strong> Students, professionals, and permanent residents</li>
+            </ul>
+        </section>
+
+        <!-- Affiliate Links Section -->
+        <section class="partners-section" aria-labelledby="partners-heading">
+            <h2 id="partners-heading" class="section-title">Trusted Remittance Services</h2>
+            <p>Send money to Nepal through these trusted providers:</p>
+            <div class="partner-links">
+                <a href="https://www.ime.com.np" rel="nofollow noopener" target="_blank" class="partner-link">IME Remittance</a>
+                <a href="https://www.pfrda.com.np" rel="nofollow noopener" target="_blank" class="partner-link">Prabhu Remittance</a>
+                <a href="https://www.westernunion.com" rel="nofollow noopener" target="_blank" class="partner-link">Western Union</a>
+            </div>
+        </section>
+
+        <!-- Ad Placeholder -->
+        <div class="ad-placeholder" aria-label="Advertisement">
+            <!-- Google AdSense Responsive Ad Unit -->
+            <p class="ad-label">Advertisement</p>
+        </div>
+
+        <section class="faq-section" aria-labelledby="faq-heading">
+            <h2 id="faq-heading" class="section-title">Frequently Asked Questions</h2>
+            
+            <div class="faq-item">
+                <h3 class="faq-question">What is today's dollar rate in Nepal?</h3>
+                <p class="faq-answer">The US dollar rate in Nepal changes daily based on Nepal Rastra Bank's rates. Check our converter above for the latest indicative USD to NPR exchange rate.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3 class="faq-question">How do I convert Qatar Riyal to Nepali Rupees?</h3>
+                <p class="faq-answer">Simply select QAR from the dropdown, enter the amount, and click "Convert to NPR" to see the approximate value in Nepali Rupees.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3 class="faq-question">Are these rates accurate?</h3>
+                <p class="faq-answer">These are indicative rates for reference. Actual rates may vary between remittance providers. Always confirm with your service provider before sending money.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3 class="faq-question">Which remittance service offers the best rates?</h3>
+                <p class="faq-answer">Rates vary by provider and change frequently. Compare rates from IME, Prabhu, Western Union, and other services before choosing.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Remittance Rate Nepal. For informational purposes only.</p>
+            <nav class="footer-nav" aria-label="Footer navigation">
+                <a href="/usd-to-npr.html">USD to NPR</a>
+                <a href="/qar-to-npr.html">QAR to NPR</a>
+                <a href="/myr-to-npr.html">MYR to NPR</a>
+                <a href="/aed-to-npr.html">AED to NPR</a>
+                <a href="/sar-to-npr.html">SAR to NPR</a>
+            </nav>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>
